@@ -10,7 +10,7 @@
  */
 int _printf(const char* format,...)
 {
-	char *traverse;
+	const char *traverse;
 	int i, count = 0;
 	char *s;
 
