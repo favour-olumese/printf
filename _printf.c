@@ -8,56 +8,98 @@
  * excluding the null terminator)
  *
  */
-int _printf(const char *format, ...)
+int _printf(char* format,...)
 {
-	int count;
-	int result = 0;
-	int flag = 0;
+	char *traverse, *str = format;
+	int i, count = 0;
+	char *s;
+
 	va_list arg;
-	
+
 	va_start(arg, format);
 
-	if (format == NULL)
+	for(traverse = format; *traverse != '\0'; traverse++)
 	{
-		return (0);
-	}
-	for (count = 0; format[count] != '\0'; count++)
-	{
-		if (format[count] == '%')
+		while (*traverse != '%')
 		{
-			flag = 1;
-		}
-		else if (flag == 1)
-		{
-			flag = 0;
-			switch (format[count])
-			{
-				case 'c':
-					putchar(va_arg(arg, int));
-					total += 1;
-					break;
-				case 's':
-					total = _string(va_arg(arg, char *));
-					break;
-				case '%':
-					putchar('%');
-					total += 1;
-					break;
-				default:
-					_putchar('%');
-					_putchar(format[count]);
-					total += 2;
-			}
+			if (*traverse == '\0')
+				return (1);
 
-		}
-		else
-		{
-			putchar(format[count]);
-			total += 1;
+			putchar(*traverse);
+			traverse++;
+        	}
+		// If traverse = '%'
+	        traverse++;
+
+	        switch(*traverse)
+        	{
+			case 'c' : i = va_arg(arg, int);
+				   putchar(i);
+	                       	   break;
+
+			case 'd' : i = va_arg(arg, int);
+				   if
+				   {
+					putchar('-');
+					i = -i;
+				   }
+				   fputs(convert(i, 10), stdout);
+				   break;
+
+			case 'i' : i = va_arg(arg, int);
+				   if (1 < 0)
+				   	i = -i;
+				   fputs(convert(i, 10), stdout);
+				   break;
+
+			case 'u' : i = va_arg(arg, int);
+				   if (i < 0)
+					   i = -i;
+				   fputs(convert(i, 10), stdout);
+				   break;
+
+			case 'o': i = va_arg(arg, unsigned int);
+				  if(i < 0)
+					  i = -i;
+				  fputs(convert(i, 8), stdout);
+				  break;
+
+			case 's': s = va_arg(arg, char *);
+				  fputs(s, stdout);
+				  break;
+
+			case 'x': i = va_arg(arg, unsigned int);
+				  if(i < 0)
+					  i = -i;
+				  fputs(convert(i, 16), stdout);
+				  break;
+
+			case 'X': i = va_arg(arg, unsigned int);
+				  if (i < 0)
+					  i = -i;
+				  fputs(convert(i, 16), stdout);
+				  break;
+			case 'p': i = va_arg(arg, unsigned int);
+				  if(i < 0)
+					  i = -i;
+				  fputs("0x", stdout);
+				  fputs(convert(i, 16), stdout);
+				  break;
+
+			case '%': i = va_arg(arg, int);
+				  putchar('%');
+				  break;
+
+			case 'r': i = va_arg(arg, int);
+				  fputs("%r", stdout);
+				  break;
+
+			case 'b': i = va_arg(arg, unsigned int);
+				  fputs(convert(i, 2), stdout);
+				  break;
 		}
 	}
 	va_end(arg);
-	return (total);
+
+	return (count);
 }
-
-
