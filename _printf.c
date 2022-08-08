@@ -28,7 +28,6 @@ int _printf(char* format,...)
 			putchar(*traverse);
 			traverse++;
         	}
-		// If traverse = '%'
 	        traverse++;
 
 	        switch(*traverse)
