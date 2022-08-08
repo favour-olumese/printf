@@ -8,9 +8,9 @@
  * excluding the null terminator)
  *
  */
-int _printf(char* format,...)
+int _printf(const char* format,...)
 {
-	char *traverse, *str = format;
+	char *traverse;
 	int i, count = 0;
 	char *s;
 
@@ -38,7 +38,7 @@ int _printf(char* format,...)
 	                       	   break;
 
 			case 'd' : i = va_arg(arg, int);
-				   if
+				   if (i < 0)
 				   {
 					putchar('-');
 					i = -i;
