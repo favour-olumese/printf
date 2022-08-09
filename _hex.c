@@ -33,7 +33,7 @@ int lower_hex(int num, int base)
 
 	while (j > 0)
 	{
-		putchar(buffer[j - 1]);
+		_putchar(buffer[j - 1]);
 		j--;
 	}
 
@@ -74,7 +74,7 @@ int upper_hex(int num, int base)
 
 	while (j > 0)
 	{
-		putchar(buffer[j - 1]);
+		_putchar(buffer[j - 1]);
 		j--;
 	}
 

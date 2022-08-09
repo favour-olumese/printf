@@ -53,6 +53,22 @@ int _printf(const char* format,...)
 					count += convert(va_arg(arg, int), 2);
 					j++;
 					break;
+				case 'x':
+					count += lower_hex(va_arg(arg, int), 16);
+					j++;
+					break;
+				case 'X':
+					count += upper_hex(va_arg(arg, int), 16);
+					j++;
+					break;
+				case 'o':
+					count += octal_num(va_arg(arg, int), 8);
+					j++;
+					break;
+				case 'p':
+					count += upper_hex(va_arg(arg, int), 16);
+					j++;
+					break;
 			}
 		}
 	}
