@@ -49,6 +49,10 @@ int _printf(const char* format,...)
 					_putchar('r');
 					j++;
 					break;
+				case 'b':
+					count += convert(va_arg(arg, int), 2);
+					j++;
+					break;
 			}
 		}
 	}
