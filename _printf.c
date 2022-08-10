@@ -27,8 +27,7 @@ int _printf(const char* format,...)
 			switch(format[j + 1])
 			{
 				case 'c':
-					count++;
-					_putchar(va_arg(arg, int));
+					count += _putchar(va_arg(arg, int));
 					j++;
 					break;
 				case 's' :
@@ -40,8 +39,7 @@ int _printf(const char* format,...)
 					j++;
 					break;
 				case '%':
-					count++;
-					_putchar('%');
+					count += _putchar('%');
 					j++;
 					break;
 				case 'r':
@@ -53,19 +51,19 @@ int _printf(const char* format,...)
 					j++;
 					break;
 				case 'x':
-					count += lower_hex(va_arg(arg, int), 16);
+					count += lower_hex(va_arg(arg, int));
 					j++;
 					break;
 				case 'X':
-					count += upper_hex(va_arg(arg, int), 16);
+					count += upper_hex(va_arg(arg, int));
 					j++;
 					break;
 				case 'o':
-					count += octal_num(va_arg(arg, int), 8);
+					count += octal_num(va_arg(arg, int));
 					j++;
 					break;
 				case 'p':
-					count += upper_hex(va_arg(arg, int), 16);
+					count += upper_hex(va_arg(arg, int));
 					j++;
 					break;
 			}

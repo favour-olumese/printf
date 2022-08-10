@@ -7,23 +7,19 @@
  *
  * Return: Counter of the digits printed.
  */
-int octal_num(int num, int base)
+int octal_num(unsigned int num)
 {
 	static char representation[]= "01234567";
 	static char buffer[50];
 
 	int count = 0, i = 0, j = 0;
 
-	if (num < 0)
-	{
-		num = -num;
-	}
 	do
 	{
-		buffer[i] = representation[num%base];
+		buffer[i] = representation[num%8];
 		count++;
 		i++;
-		num /= base;
+		num /= 8;
 	}while(num != 0);
 
 	while (buffer[j] != '\0')

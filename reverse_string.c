@@ -10,6 +10,12 @@ int reverse_string(char *str)
 {
 	int count = 0, i;
 
+    if (*str == '\0')
+    {
+        count += _putchar('r');
+        return (count);
+    }
+
 	for (i = 0; str[i] != '\0'; i++)
 	{
 		count++;
