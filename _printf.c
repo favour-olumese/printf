@@ -45,8 +45,7 @@ int _printf(const char* format,...)
 					j++;
 					break;
 				case 'r':
-					count++;
-					_putchar('r');
+					count += reverse_string(va_arg(arg, char*));
 					j++;
 					break;
 				case 'b':

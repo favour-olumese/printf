@@ -8,6 +8,6 @@ int _putchar(char c);
 int upper_hex(int num, int base);
 int lower_hex(int num, int base);
 int octal_num(int num, int base);
-
+int reverse_string(char *str);
 
 #endif
