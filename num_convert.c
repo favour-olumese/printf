@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * convert - Converts a number to decimal from a given base.
+ * convert - Converts numbers in base 2 - 16 to decimal.
  * @num: Numbers
  * @base: Base to convert from.
  *

@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * octal_num - Converts decimal to octal number.
+ * octal_num - Converts octal number to decimal.
  * @num - Decimal number to be converted.
  * @base: 8.
  *

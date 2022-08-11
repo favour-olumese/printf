@@ -4,8 +4,7 @@
 /**
  * _printf - produces output according to a format.
  * @format: a character string.
- * Return: number of characters printed(
- * excluding the null terminator)
+ * Return: number of characters printed excluding the null character.
  */
 int _printf(const char* format,...)
 {
@@ -35,7 +34,7 @@ int _printf(const char* format,...)
 					j++;
 					break;
 				case 'd':
-					count += convert(va_arg(arg, int), 10);
+					count += print_decimal(va_arg(arg, int));
 					j++;
 					break;
 				case '%':
@@ -64,6 +63,10 @@ int _printf(const char* format,...)
 					break;
 				case 'p':
 					count += upper_hex(va_arg(arg, int));
+					j++;
+					break;
+				case 'u':
+					count += print_unsigned_int(va_arg(arg, int));
 					j++;
 					break;
 			}
